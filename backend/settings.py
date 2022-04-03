@@ -3,15 +3,16 @@ Django settings for backend project.
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-mls9x3j*&u#%uesjm2&1mwj5y%=4l!@t7&0fqk%x*435b^&tp6"
+SECRET_KEY = os.environ.get("SERVO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("SERVO_DEBUG_VALUE") == "True"
 
 ALLOWED_HOSTS = ["*"]
 
