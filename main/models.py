@@ -69,7 +69,8 @@ class Complaint(models.Model):
     type = models.CharField(_("type"), max_length=100, choices=ComplaintTypes.choices)
     description = models.TextField(_("description"))
     date_lodged = models.DateTimeField(_("date logged"), auto_now_add=True)
-    mark_done = models.BooleanField(_("done by student"), default=False)
+    mark_done = models.BooleanField(_("mark done"), default=False)
+    date_done = models.DateTimeField(_("date done"), auto_now=True)
     roll_number = models.CharField(
         _("roll number"), max_length=20, blank=True, default=""
     )
